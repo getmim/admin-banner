@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'admin-banner',
-    '__version' => '0.0.1',
+    '__version' => '0.0.2',
     '__git' => 'git@github.com:getmim/admin-banner.git',
     '__license' => 'MIT',
     '__author' => [
@@ -164,9 +164,10 @@ return [
                 ],
                 'img-url' => [
                     'label' => 'Image URL',
-                    'type' => 'url',
+                    'type' => 'image',
+                    'form' => 'std-image',
                     'rules' => [
-                        'url' => true,
+                        'upload' => true,
                         'required_on' => [
                             'type' => [
                                 'operator' => '=',
@@ -192,6 +193,7 @@ return [
                 'html-content' => [
                     'label' => 'HTML',
                     'type' => 'textarea',
+                    'monospace' => true,
                     'rules' => [
                         'required_on' => [
                             'type' => [
@@ -205,6 +207,7 @@ return [
                 'gads-code' => [
                     'label' => 'Adsense Code',
                     'type' => 'textarea',
+                    'monospace' => true,
                     'rules' => [
                         'required_on' => [
                             'type' => [
