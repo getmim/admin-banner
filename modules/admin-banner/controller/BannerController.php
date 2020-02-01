@@ -141,7 +141,7 @@ class BannerController extends \Admin\Controller
         $params['placements'] = $placements;
 
         // pagination
-        $total = Banner::count($cond);
+        $params['total'] = $total = Banner::count($cond);
         if($total > $rpp){
             $params['pages'] = new Paginator(
                 $this->router->to('adminBanner'),

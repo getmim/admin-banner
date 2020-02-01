@@ -1,56 +1,66 @@
-<form method="POST" class="needs-validation main" novalidate>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-shadow">
-        <div class="navbar-multiline mr-auto">
-            <span class="navbar-brand" href="#0">Banner Editor</span>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= $this->router->to('adminHome') ?>">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#0">Component</a></li>
-                    <li class="breadcrumb-item"><a href="<?= $this->router->to('adminBanner') ?>">Banner</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><?= $subtitle ?></li>
-                </ol>
-            </nav>
-        </div>
-        <button class="btn btn-primary">Save</button>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-white navbar-shadow">
+    <div class="navbar-multiline mr-auto">
+        <span class="navbar-brand" href="#0">Banner Editor</span>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<?= $this->router->to('adminHome') ?>">Home</a></li>
+                <li class="breadcrumb-item"><a href="#0">Component</a></li>
+                <li class="breadcrumb-item"><a href="<?= $this->router->to('adminBanner') ?>">Banner</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?= $subtitle ?></li>
+            </ol>
+        </nav>
+    </div>
+</nav>
 
-    <div class="container p-3">
-        <div class="row">
-            <div class="col-md-4">
-                <?= $form->csrfField('noob') ?>
-                <?= $form->field('name'); ?>
-                <?= $form->field('placement', $placements); ?>
-                <?= $form->field('expires'); ?>
-                <?= $form->field('type'); ?>
-            </div>
-            <div class="col-md-4">
-                <div id="banner-type-1" class="type-props">
-                    <?= $form->field('img-title'); ?>
-                    <?= $form->field('img-url'); ?>
-                    <?= $form->field('img-link'); ?>
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="POST" class="card needs-validation main" novalidate>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <?= $form->csrfField('noob') ?>
+                            <?= $form->field('name'); ?>
+                            <?= $form->field('placement', $placements); ?>
+                            <?= $form->field('expires'); ?>
+                            <?= $form->field('type'); ?>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="banner-type-1" class="type-props">
+                                <?= $form->field('img-title'); ?>
+                                <?= $form->field('img-url'); ?>
+                                <?= $form->field('img-link'); ?>
+                            </div>
+                            <div id="banner-type-2" class="type-props">
+                                <?= $form->field('html-content'); ?>
+                            </div>
+                            <div id="banner-type-3" class="type-props">
+                                <?= $form->field('gads-code'); ?>
+                            </div>
+                            <div id="banner-type-4" class="type-props">
+                                <?= $form->field('iframe-url'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
                 </div>
-                <div id="banner-type-2" class="type-props">
-                    <?= $form->field('html-content'); ?>
-                </div>
-                <div id="banner-type-3" class="type-props">
-                    <?= $form->field('gads-code'); ?>
-                </div>
-                <div id="banner-type-4" class="type-props">
-                    <?= $form->field('iframe-url'); ?>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
-</form>
+</div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function(){
-        $('#admin-component-banner-edit-fld-type')
-            .on('change', function(){
-                console.log(this.value);
-                $('.type-props').hide();
-                $('#banner-type-' + this.value).show();
-            })
-            .change();
-    });
+document.addEventListener('DOMContentLoaded', function(){
+    $('#admin-component-banner-edit-fld-type')
+        .on('change', function(){
+            console.log(this.value);
+            $('.type-props').hide();
+            $('#banner-type-' + this.value).show();
+        })
+        .change();
+});
 </script>
