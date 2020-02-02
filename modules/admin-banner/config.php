@@ -87,7 +87,7 @@ return [
                     'children' => [
                         'banner' => [
                             'label' => 'Banner',
-                            'icon'  => '<i class="fas fa-mouse-pointer"></i>',
+                            'icon'  => '<i></i>',
                             'route' => ['adminBanner'],
                             'perms' => 'manage_banner'
                         ]
