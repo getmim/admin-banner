@@ -47,10 +47,7 @@ return [
         'admin' => [
             'adminBanner' => [
                 'path' => [
-                    'value' => '/component/banner',
-                    'params' => [
-                        'group' => 'any'
-                    ]
+                    'value' => '/component/banner'
                 ],
                 'method' => 'GET',
                 'handler' => 'AdminBanner\\Controller\\Banner::index'
