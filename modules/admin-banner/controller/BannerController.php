@@ -58,7 +58,7 @@ class BannerController extends \Admin\Controller
 
         $form                 = new Form('admin.component-banner.edit');
         $params['form']       = $form;
-        $params['placements'] = $this->config->banner->placements;
+        $params['placements'] = $this->config->banner->placements ?? [];
         
         if(!($valid = $form->validate($banner)) || !$form->csrfTest('noob'))
             return $this->resp('banner/edit', $params);
@@ -135,7 +135,7 @@ class BannerController extends \Admin\Controller
         $placements = Banner::countGroup('placement') ?? [];
         if($placements)
             $placements = array_keys($placements);
-        $placements = array_merge($placements, $this->config->banner->placements);
+        $placements = array_merge($placements, ( $this->config->banner->placements ?? [] ));
         $placements = array_unique($placements);
 
         $params['placements'] = $placements;
